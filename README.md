@@ -4,6 +4,7 @@ A script that is made to backup partitions that is needed to restore IMEI.
 ## Requirements
 - termux from fdroid (do not use playstore version, it's deprecated and might not work.)
 - a working internet connection
+- most importantly, root access
 
 ## How To Use
 Simply paste below command in termux, the rest will be done for you ;)
