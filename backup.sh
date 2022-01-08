@@ -18,9 +18,11 @@ function throw() {
 print_info "Please grant termux storage permission on next screen..."
 termux-setup-storage
 
-print_info "!! Make sure you installed termux from fdroid and not PlayStore. !!"
+print_info "!! Make sure you installed termux from fdroid"
+print_info " and not PlayStore. !!"
 
-print_info "Please confirm whether you have installed termux from fdroid or not. Enter 'y' for yes and 'n' for no."
+print_info "Please confirm whether you have installed termux from fdroid or not."
+print_info "Enter 'y' for yes and 'n' for no."
 read -n 1 confirmation
 echo -ne "\b"
 if [ "$confirmation" == "y" ]; then
@@ -74,4 +76,5 @@ zip -qr $filename $tmpdir
 print_info "Cleanup"
 rm -rf $tmpdir
 
-print_info "Done. File is located in internal storage with filename: $filename"
+print_info "Done. File is located in internal storage with filename:"
+print_info "$filename"
