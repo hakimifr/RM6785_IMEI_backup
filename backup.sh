@@ -39,7 +39,7 @@ fi
 
 print_info "Installing required packages"
 pkg update -y &>/dev/null || err=1
-pkg upgrade -y &>/dev/null || err=1
+yes | pkg upgrade &>/dev/null || err=1
 pkg update -y &>/dev/null || err=1
 pkg install tsu zip -y &>/dev/null || err=1
 if [ "$err" == "1" ]; then
