@@ -1,4 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
+# shellcheck disable=SC2086,SC2162 # disable double quote warning, disable read without -r waning
 
 # pretty print function
 function print_info() {
