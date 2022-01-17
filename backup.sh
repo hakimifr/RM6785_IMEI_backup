@@ -46,8 +46,10 @@ if [ "$err" == "1" ]; then
     throw "Failed to install packages, check your internet connection and try again."
 fi
 
+testfile=/cache/test.$RANDOM
 print_info "Checking for root access"
-sudo touch /cache/test.$RANDOM || throw "Root access not granted. Please grant root access and run this script again."
+sudo touch $testfile || throw "Root access not granted. Please grant root access and run this script again."
+sudo rm -f $testfile
 
 print_info "Making directory"
 tmpdir="tmpdir-$RANDOM"
