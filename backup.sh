@@ -67,7 +67,7 @@ protect2
 proinfo
 "
 for part in $partitions; do
-  sudo dd if="/dev/block/by-name/$part" of="/sdcard/$tmpdir/$part.img" &>/dev/null
+  sudo dd if="/dev/block/by-name/$part" of="/sdcard/$tmpdir/$part.img" status="none"
 done
 
 print_info "Packing partitions to save space"
