@@ -39,9 +39,16 @@ else
 fi
 
 print_info "Installing required packages"
-pkg update -y &>/dev/null || err=1
-yes | pkg upgrade &>/dev/null || err=1
-pkg update -y &>/dev/null || err=1
+print_info " - Installing updates, you can skip this by pressing 'y' within"
+print_info " - 5 seconds ... (Useful if you have limited data)"
+read -n1 -t5 skip_update
+if [[ "$skip_update" =~ [yY] ]]; then
+    print_info "Skipping update, only required packages will be installed"
+else
+    pkg update -y &>/dev/null || err=1
+    yes | pkg upgrade &>/dev/null || err=1
+    pkg update -y &>/dev/null || err=1
+fi
 pkg install tsu zip -y &>/dev/null || err=1
 if [ "$err" == "1" ]; then
     throw "Failed to install packages, check your internet connection and try again."
